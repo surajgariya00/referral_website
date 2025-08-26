@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 248 250 252;        /* slate-50 */
+  --card: 255 255 255;      /* white */
+  --text: 15 23 42;         /* slate-900 */
+  --muted: 100 116 139;     /* slate-500 */
+  --accent: 99 102 241;     /* indigo-500 */
+  --ring: 129 140 248;      /* indigo-400 */
+}
+
+/* Dark */
+[data-theme="dark"] {
+  --bg: 2 6 23;       /* slate-950 */
+  --card: 15 23 42;   /* slate-900 */
+  --text: 241 245 249;/* slate-100 */
+  --muted: 148 163 184;/* slate-400 */
+  --accent: 20 184 166;/* teal-500 */
+  --ring: 45 212 191; /* teal-400 */
+}
+
+/* Neon (cyber) */
+[data-theme="neon"] {
+  --bg: 2 8 23;
+  --card: 10 10 24;
+  --text: 240 249 255;
+  --muted: 99 102 241;
+  --accent: 236 72 153; /* pink-500 */
+  --ring: 56 189 248;   /* sky-400 */
+}
+
+/* Forest (earthy) */
+[data-theme="forest"] {
+  --bg: 248 250 248;
+  --card: 236 253 245;
+  --text: 2 44 34;
+  --muted: 71 85 75;
+  --accent: 34 197 94; /* green-500 */
+  --ring: 52 211 153;  /* emerald-400 */
+}
+
+/* Pastel */
+[data-theme="pastel"] {
+  --bg: 250 245 255;
+  --card: 255 255 255;
+  --text: 17 24 39;
+  --muted: 153 102 204;
+  --accent: 147 197 253;
+  --ring: 196 181 253;
+}
+
+html, body, #root { height: 100%; }
+
+.container-max { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+.card { @apply bg-card/80 backdrop-blur rounded-2xl border border-white/10 shadow-lg; }
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium bg-accent text-white hover:opacity-90
+  transition focus:outline-none focus:ring-4;
+  box-shadow: 0 0 30px rgba(var(--accent), 0.35);
+}
+.btn-ghost {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl font-medium bg-transparent text-text border border-text/20 hover:bg-card/60
+  transition focus:outline-none focus:ring-4;
+}
+
+/* Subtle animated gradient background helper */
+.animated-gradient {
+  background: radial-gradient(60% 60% at 20% 20%, rgba(var(--accent), .15), transparent),
+              radial-gradient(40% 40% at 80% 0%, rgba(var(--ring), .12), transparent),
+              radial-gradient(50% 50% at 50% 100%, rgba(var(--muted), .10), transparent);
+}
+
+/* Grid background */
+.grid-bg {
+  background-size: 32px 32px;
+  background-image: var(--tw-gradient-stops);
+  background-image: linear-gradient(to right, rgba(var(--muted),0.1) 1px, transparent 1px),
+                   linear-gradient(to bottom, rgba(var(--muted),0.1) 1px, transparent 1px);
+}
